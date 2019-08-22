@@ -26,4 +26,6 @@ class Perceptron(object):
 
 	def net_input(self, X):
 		return np.dot(X, self.w_[1:]) + self.w_[0]
-		
+
+	def predict(self, X):
+		return np.where(self.net_input(X) >= 0.0, 1, -1)
