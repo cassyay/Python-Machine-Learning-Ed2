@@ -20,4 +20,11 @@ class AdalineGD(object):
 			self.cost_.append(cost)
 		return self
 
-		
+		def net_input(self, X):
+			return np.dot(X, self.w_[1:]) + self.w_[0]
+
+		def activation(self, X):
+			return X
+
+		def predict(self, X):
+			return np.where(self.activation(self.net_input(X)) >= 0.0, 1, -1)
